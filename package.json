@@ -1,16 +1,16 @@
 {
-  "name": "@cyntler/react-doc-viewer",
-  "version": "1.14.1",
+  "name": "@revale/react-doc-viewer-mui",
+  "version": "1.0.10",
   "description": "File viewer for React.",
   "author": "Matthew Mogford / Damian Cyntler",
   "keywords": [
     "reactjs",
     "file-viewer"
   ],
-  "license": "Apache License 2.0",
+  "license": "UNLICENSED",
   "homepage": "https://cyntler.github.io/react-doc-viewer",
   "repository": {
-    "url": "https://github.com/cyntler/react-doc-viewer"
+    "url": "git+https://github.com/cyntler/react-doc-viewer.git"
   },
   "files": [
     "dist/**"
@@ -34,12 +34,17 @@
     "release": "npm run prettier:check && npm run test && npm run build && release-it && npm run deploy"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.6",
     "@types/mustache": "^4.2.3",
     "@types/papaparse": "^5.3.9",
     "mustache": "^4.2.0",
     "papaparse": "^5.4.1",
     "react-pdf": "7.5.0",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -96,5 +101,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/cyntler/react-doc-viewer/issues"
   }
 }

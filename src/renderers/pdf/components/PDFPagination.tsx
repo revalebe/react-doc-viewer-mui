@@ -4,8 +4,10 @@ import { Button } from "../../../components/common";
 import { IStyledProps } from "../../..";
 import { PDFContext } from "../state";
 import { setCurrentPage } from "../state/actions";
-import { NextPDFNavIcon, PrevPDFNavIcon } from "./icons";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { IconButton } from "@mui/material";
+import ArrowRightTwoToneIcon from "@mui/icons-material/ArrowRightTwoTone";
+import ArrowLeftTwoToneIcon from "@mui/icons-material/ArrowLeftTwoTone";
 
 const PDFPagination: FC<{}> = () => {
   const {
@@ -16,13 +18,15 @@ const PDFPagination: FC<{}> = () => {
 
   return (
     <Container id="pdf-pagination">
-      <PageNavButtonLeft
+      <IconButton
+        color="primary"
+        size="small"
         id="pdf-pagination-prev"
         onClick={() => dispatch(setCurrentPage(currentPage - 1))}
         disabled={currentPage === 1}
       >
-        <PrevPDFNavIcon color="#000" size="50%" />
-      </PageNavButtonLeft>
+        <ArrowLeftTwoToneIcon />
+      </IconButton>
 
       <PageTag id="pdf-pagination-info">
         {t("pdfPluginPageNumber", {
@@ -31,13 +35,15 @@ const PDFPagination: FC<{}> = () => {
         })}
       </PageTag>
 
-      <PageNavButtonRight
+      <IconButton
         id="pdf-pagination-next"
+        color="primary"
+        size="small"
         onClick={() => dispatch(setCurrentPage(currentPage + 1))}
         disabled={currentPage >= numPages}
       >
-        <NextPDFNavIcon color="#000" size="50%" />
-      </PageNavButtonRight>
+        <ArrowRightTwoToneIcon />
+      </IconButton>
     </Container>
   );
 };

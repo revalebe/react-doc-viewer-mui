@@ -16,7 +16,9 @@ export default {
 
 const docs: IDocument[] = [
   { uri: pdfFile },
-  { uri: pngFile },
+  {
+    uri: "https://almitee-staging.s3.eu-central-1.amazonaws.com/organizations/5373afbe-6113-40e9-a98a-285ad1d11ec9/asset_brands/274c7bb6-8a94-4d45-9b77-7c4026947cbf/logo/1500x1500/1701121786458.jpeg",
+  },
   { uri: csvFile },
   { uri: pdfMultiplePagesFile },
 ];
@@ -29,7 +31,6 @@ export const Default = () => (
       noRenderer: {
         overrideComponent: ({ document, fileName }) => {
           const fileText = fileName || document?.fileType || "";
-          console.log(document);
           if (fileText) {
             return <div>no renderer for {fileText}</div>;
           }

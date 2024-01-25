@@ -56,8 +56,24 @@ export const useDocumentLoader = (): {
           );
         })
         .catch((error) => {
-          if (error?.name !== "AbortError") {
-            throw error;
+          if (documentURI.endsWith(".jpg") || documentURI.endsWith(".jpeg")) {
+            dispatch(
+              updateCurrentDocument({
+                ...currentDocument,
+                fileType: "image/jpeg" || undefined,
+              }),
+            );
+          } else if (documentURI.endsWith(".png")) {
+            dispatch(
+              updateCurrentDocument({
+                ...currentDocument,
+                fileType: "image/png" || undefined,
+              }),
+            );
+          } else {
+            if (error?.name !== "AbortError") {
+              throw error;
+            }
           }
         });
 
@@ -70,6 +86,7 @@ export const useDocumentLoader = (): {
   );
 
   useEffect(() => {
+    console.log({ CurrentRenderer });
     if (!currentDocument || CurrentRenderer === undefined) return;
 
     const controller = new AbortController();
@@ -97,7 +114,11 @@ export const useDocumentLoader = (): {
       headers: state?.requestHeaders,
     };
 
-    if (CurrentRenderer === null) {
+    if (
+      CurrentRenderer === null ||
+      CurrentRenderer.fileTypes.includes("image/jpeg") ||
+      CurrentRenderer.fileTypes.includes("image/png")
+    ) {
       dispatch(setDocumentLoading(false));
     } else if (CurrentRenderer.fileLoader !== undefined) {
       CurrentRenderer.fileLoader?.(loaderFunctionProps);

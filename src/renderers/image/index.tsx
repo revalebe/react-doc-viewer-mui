@@ -8,13 +8,13 @@ const ImageProxyRenderer: DocRenderer = (props) => {
     children,
   } = props;
 
+  console.log({ currentDocument });
+
   if (!currentDocument) return null;
 
   return (
     <Container id="image-renderer" {...props}>
-      {children || (
-        <Img id="image-img" src={currentDocument.fileData as string} />
-      )}
+      {children || <Img id="image-img" src={currentDocument.uri}></Img>}
     </Container>
   );
 };
@@ -37,4 +37,6 @@ const Container = styled.div`
 const Img = styled.img`
   max-width: 95%;
   max-height: 95%;
+  width: 100%;
+  height: auto;
 `;
