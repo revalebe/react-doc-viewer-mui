@@ -57,7 +57,7 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 100;
   justify-content: flex-end;
   padding: 8px;
   background-color: ${(props: IStyledProps) => props.theme.tertiary};

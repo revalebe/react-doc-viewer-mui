@@ -63,6 +63,8 @@ export interface IDocument {
   fileType?: string;
   fileData?: string | ArrayBuffer;
   fileName?: string;
+  filePage?: string;
+  fileHighlight?: string;
 }
 
 export interface DocRendererProps {
