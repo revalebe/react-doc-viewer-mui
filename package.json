@@ -1,6 +1,6 @@
 {
   "name": "@revale/react-doc-viewer-mui",
-  "version": "1.0.17",
+  "version": "1.0.27",
   "description": "File viewer for React.",
   "author": "Matthew Mogford / Damian Cyntler",
   "keywords": [
@@ -40,10 +40,13 @@
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "@types/mustache": "^4.2.5",
     "@types/papaparse": "^5.3.14",
     "mustache": "^4.2.0",
     "papaparse": "^5.4.1",
+    "pdfjs-dist": "3.4.120",
     "react-pdf": "9.1.0",
     "styled-components": "^6.1.12"
   },

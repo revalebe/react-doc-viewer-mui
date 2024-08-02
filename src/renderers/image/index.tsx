@@ -8,8 +8,6 @@ const ImageProxyRenderer: DocRenderer = (props) => {
     children,
   } = props;
 
-  console.log({ currentDocument });
-
   if (!currentDocument) return null;
 
   return (

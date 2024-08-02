@@ -23,7 +23,7 @@ const _fileLoader: BaseFileLoaderFunction = ({
   readerTypeFunction,
   headers,
 }) => {
-  return fetch(documentURI, { signal, headers })
+  return fetch(documentURI, { signal, headers, cache: "no-cache" })
     .then(async (res) => {
       const blob = await res.blob();
 
