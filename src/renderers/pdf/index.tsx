@@ -21,6 +21,11 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.vers
 
 const PDFRenderer: DocRenderer = ({ mainState }) => {
   const usePdfViewer = true;
+
+  const initialPage = mainState?.currentDocument?.filePage
+    ? +mainState?.currentDocument?.filePage - 1
+    : 0;
+
   const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
     <Toolbar>
       {(slots: ToolbarSlot) => {
@@ -60,7 +65,7 @@ const PDFRenderer: DocRenderer = ({ mainState }) => {
               <div
                 style={{
                   display: "flex",
-                  width: "150px",
+                  width: "180px",
                   alignItems: "center",
                 }}
               >
@@ -103,6 +108,7 @@ const PDFRenderer: DocRenderer = ({ mainState }) => {
             <Viewer
               plugins={[defaultLayoutPluginInstance]}
               fileUrl={`${mainState.currentDocument?.uri}`}
+              initialPage={initialPage}
             />
           </Worker>
         ) : (
